@@ -1,14 +1,21 @@
 package tp_hibernate.auto_ecole;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import tp_hibernate.auto_ecole.models.Cd;
 import tp_hibernate.auto_ecole.models.Eleve;
 import tp_hibernate.auto_ecole.models.Question;
+import tp_hibernate.auto_ecole.models.Seance;
 import tp_hibernate.auto_ecole.models.Serie;
 import tp_hibernate.auto_ecole.models.SeriesQuestion;
 import tp_hibernate.auto_ecole.models.SeriesQuestionPK;
 import tp_hibernate.auto_ecole.repositories.CdRepository;
 import tp_hibernate.auto_ecole.repositories.EleveRepository;
 import tp_hibernate.auto_ecole.repositories.QuestionRepository;
+import tp_hibernate.auto_ecole.repositories.SeanceRepository;
 import tp_hibernate.auto_ecole.repositories.SerieRepository;
 import tp_hibernate.auto_ecole.repositories.SeriesQuestionRepository;
 import tp_hibernate.auto_ecole.utils.SessionHibernate;
@@ -61,16 +68,35 @@ public class App
        sqpk.setSeriesId(1);
        sq.setId(sqpk);
        sqr.save(sq);*/
-       Serie s1 = sr.get(1, Serie.class);
-       s1.addQuestion(qr.get(3, Question.class), 18);
+       /*Serie s1 = sr.get(1, Serie.class);
+       s1.addQuestion(qr.get(1, Question.class), 3);
+       s1.addQuestion(qr.get(2, Question.class), 2);
+       s1.addQuestion(qr.get(3, Question.class), 1);*/
+       //sr.update(s1);
      //  System.out.println("test ajout question "+ s1.getSeriesQuestions().get(1).getQuestion().getIntitule());
        //Question q1 = qr.get(1, Question.class);
      //  System.out.println("test ajout question "+ q1.getSeriesQuestions().get(0).getSerie().getName());
-       s1 = sr.get(s1.getId(), Serie.class);
-       s1.getSeriesQuestions().forEach(q -> {
+       //s1 = sr.get(s1.getId(), Serie.class);
+       /*s1.getSeriesQuestions().forEach(q -> {
     	   System.out.println(q.getId().getNumero());
-       });
+       });*/
        //System.out.println(s1.getSeriesQuestions().get(1).getQuestion().getIntitule());
        //System.out.println("test ajout question "+ s1.getSeriesQuestions().get(1).getQuestion().getIntitule());
+       SeanceRepository ser = new SeanceRepository();
+      /* Seance se = new Seance();
+       se.setEleve(er.get(2, Eleve.class));
+       se.setSerie(sr.get(1, Serie.class));
+       se.setDate(LocalDate.of(2021, 7, 31));
+       ser.save(se);*/
+       
+       
+       er.get(2, Eleve.class).getSeances().forEach(seance -> {
+    	   seance.getSerie().getSeriesQuestions().forEach(sq ->{
+    		   System.out.println(sq.getQuestion().getIntitule());
+    	   });
+       });
+       
+       
+       
     }
 }

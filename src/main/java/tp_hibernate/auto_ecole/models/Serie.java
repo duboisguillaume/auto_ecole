@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import tp_hibernate.auto_ecole.repositories.SeriesQuestionRepository;
-import tp_hibernate.auto_ecole.utils.SessionHibernate;
 
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class Serie implements Serializable {
 	private Cd cd;
 
 	//bi-directional many-to-one association to SeriesQuestion
-	@OneToMany(mappedBy="serie", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="serie", fetch = FetchType.EAGER)
 	private List<SeriesQuestion> seriesQuestions;
 
 	public Serie() {

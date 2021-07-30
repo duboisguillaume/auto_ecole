@@ -39,5 +39,13 @@ public abstract class MyRepository<T> {
         session.getTransaction().commit();
         SessionHibernate.closeSession();
     }
+	
+    public void delete(T object) {
+        Session session = SessionHibernate.currentSession();
+        session.beginTransaction();
+        session.delete(object);
+        session.getTransaction().commit();
+        SessionHibernate.closeSession();
+    }
 
 }

@@ -3,7 +3,7 @@ package tp_hibernate.auto_ecole.models;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
 
 
 /**
@@ -19,8 +19,7 @@ public class Seance implements Serializable {
 	@Id
 	private int id;
 
-	@Temporal(TemporalType.DATE)
-	private Date date;
+	private LocalDate date;
 
 
 	private byte estExamen;
@@ -55,12 +54,12 @@ public class Seance implements Serializable {
 	}
 
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return this.date;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(LocalDate localDate) {
+		this.date = localDate;
 	}
 
 	
