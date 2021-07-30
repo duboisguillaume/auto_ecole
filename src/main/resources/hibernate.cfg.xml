@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+	
+		
+		<property name="connection.url">jdbc:mysql://localhost:3306/auto_ecole</property>
+  <property name="connection.username">root</property>
+  <property name="connection.password">root</property>
+  <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="show_sql">true</property>
+  <mapping class="tp_hibernate.auto_ecole.models.Cd"/>
+  <mapping class="tp_hibernate.auto_ecole.models.Eleve"/>
+  <mapping class="tp_hibernate.auto_ecole.models.Question"/>
+  <mapping class="tp_hibernate.auto_ecole.models.Seance"/>
+  <mapping class="tp_hibernate.auto_ecole.models.Serie"/>
+  <mapping class="tp_hibernate.auto_ecole.models.SeriesQuestion"/>
+  <mapping class="tp_hibernate.auto_ecole.models.SeriesQuestionPK"/>
+	</session-factory>
+</hibernate-configuration>
